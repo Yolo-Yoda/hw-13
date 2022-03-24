@@ -13,10 +13,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstTextField.alignTextVerticallyInContainer()
         firstTextField.attributedText = myAttributedString(myString: "Hello world")
-        //firstTextField.layer.contentsGravity = .center
-        
     }
         
     private func myAttributedString (myString: String)-> NSMutableAttributedString{
@@ -57,13 +54,4 @@ class ViewController: UIViewController {
     }
 }
 
-public extension UITextView {
-    func alignTextVerticallyInContainer() {
-        let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
-        let size = sizeThatFits(fittingSize)
-        let topOffset = ((bounds.size.height - size.height * zoomScale) / 2)
-        let positiveTopOffset = max(1, topOffset)
-        contentOffset.y = -positiveTopOffset + 1
-    }
-}
 
